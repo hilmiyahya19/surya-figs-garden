@@ -1,6 +1,5 @@
 "use client";
 
-import { Link } from "react-scroll";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -8,10 +7,10 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Beranda", to: "beranda" },
-    { name: "Produk", to: "produk" },
-    { name: "Pemesanan", to: "pemesanan" },
-    { name: "Kontak", to: "kontak" },
+    { name: "Beranda", href: "#beranda" },
+    { name: "Produk", href: "#produk" },
+    { name: "Pemesanan", href: "#pemesanan" },
+    { name: "Kontak", href: "#kontak" },
   ];
 
   return (
@@ -33,18 +32,13 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                activeClass="text-green-600"
-                className="cursor-pointer text-black hover:text-green-600 transition font-medium text-md"
+              <a
+                key={item.href}
+                href={item.href}
+                className="cursor-pointer text-black hover:text-hijauSFG transition font-medium text-md"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
 
@@ -66,19 +60,14 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t shadow-sm">
           <div className="flex flex-col items-center py-4 gap-4">
             {navItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-80}
-                duration={500}
-                activeClass="text-green-600"
+              <a
+                key={item.href}
+                href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="cursor-pointer text-black hover:text-green-600 font-medium"
+                className="cursor-pointer text-black hover:text-hijauSFG font-medium"
               >
                 {item.name}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
