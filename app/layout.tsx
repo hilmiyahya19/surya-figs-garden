@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Surya Figs Garden",
   description: "Landing page tanaman",
+  icons: {
+    icon: "/icon-SFG.png",
+  },
 };
 
 export default function RootLayout({
